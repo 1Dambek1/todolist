@@ -11,6 +11,7 @@ export function Sidebar({ darkMode, toggleDarkMode }: SidebarProps) {
 
     const [isOpen, setIsOpen] = useState(true);
     
+    
     return (
         <>
             <button
@@ -32,14 +33,16 @@ export function Sidebar({ darkMode, toggleDarkMode }: SidebarProps) {
                 pt-10
                 fixed lg:static
                 h-full
-                bg-white dark:bg-gray-900 shadow-lg
+              bg-white dark:bg-gray-900 
+                bg-sidebar-bg
+                shadow-lg
                 transition-all duration-300
                 z-40 lg:z-0
                 ${isOpen ? 'w-64 left-0' : 'w-0 -left-64 lg:w-20'}
                 overflow-hidden
             `}>
                 <div className="p-4 min-w-64 lg:min-w-0">
-                    <SideBarNav sidebarItems={sidebarConstItems} isOpen={isOpen} setIsOpen={setIsOpen}/>
+                    <SideBarNav sidebarItems={sidebarConstItems} isOpen={isOpen} setIsOpen={setIsOpen} darkMode={darkMode}/>
 
                     <div className={` 
                         mt-6 
@@ -49,14 +52,13 @@ export function Sidebar({ darkMode, toggleDarkMode }: SidebarProps) {
                           `}>
                             {isOpen ? 'Мои проекты' : ''}
                     </div>
-                    <SideBarNav sidebarItems={sidebarConstItems} isOpen={isOpen} setIsOpen={setIsOpen}/>
 
                     <button
                         onClick={toggleDarkMode}
                         className="absolute bottom-1 p-3 py-2 mt-4 w-full rounded-lg cursor-pointer  dark:text-white flex items-center"
                     >
                         <span className="mr-3">
-                            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+                        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
                         </span>
                         <span className={!isOpen ? 'lg:hidden' : ''}>
                             {darkMode ? 'Светлая тема' : 'Тёмная тема'}

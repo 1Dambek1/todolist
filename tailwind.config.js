@@ -7,8 +7,10 @@ export default {
   ],
   theme: {
     extend: {
-      
+            
       colors:{
+        "current-bg": "var(--current-bg)",
+        "text-color": "var(--text-color)",
         red:{
           DEFAULT: '#DE473A',
           light: '#FF4D4D',

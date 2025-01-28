@@ -1,7 +1,7 @@
 import { useRouter } from "@tanstack/react-router";
 import { SidebarItem } from "../../types/sideBarType";
 
-export function SideBarNav({sidebarItems, isOpen, setIsOpen}:{sidebarItems:SidebarItem[], isOpen:boolean, setIsOpen: (isOpen: boolean) => void}) {
+export function SideBarNav({sidebarItems, isOpen, setIsOpen,darkMode}:{sidebarItems:SidebarItem[], isOpen:boolean, setIsOpen: (isOpen: boolean) => void,darkMode:boolean}) {
     const router = useRouter();
     const currentPath = router.state.location.pathname;
     return (
@@ -13,13 +13,14 @@ export function SideBarNav({sidebarItems, isOpen, setIsOpen}:{sidebarItems:Sideb
                 className={`
                     p-3 py-2  rounded-lg cursor-pointer
                     ${currentPath === item.path 
-                        ? 'bg-blue-500 text-white' 
+                        ? !darkMode ? 'bg-blue-500 text-white' : 'bg-purple-700 text-white' 
                         : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white'}
                     ${!isOpen && 'lg:justify-center'}
                 `}
                 onClick={() => {
                     router.navigate({to:item?.path});
                     if (window.innerWidth < 1024) setIsOpen(false);
+                    item?.onClick?.();
                 }}
             >
                 <div className={`flex items-center ${!isOpen && 'lg:justify-center'}`}>

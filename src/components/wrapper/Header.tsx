@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { RedButton } from "../ui/RedButton";
 import { useState } from "react";
 
@@ -54,12 +55,15 @@ export function Header() {
           shadow-lg md:shadow-none
         `}>
           <ul className="flex flex-col md:flex-row gap-4 md:gap-8 text-sm items-center w-full md:w-auto p-4 md:p-0">
-            <li className="hover:text-gray-300 w-full md:w-auto"><button>Возможности</button></li>
-            <li className="hover:text-gray-300 w-full md:w-auto"><button>Ресурсы</button></li>
-            <li className="hover:text-gray-300 w-full md:w-auto"><button>Тарифы</button></li>
+            <li className="hover:text-gray-300 w-full md:w-auto"><Link to="/">Возможности</Link></li>
+            <li className="hover:text-gray-300 w-full md:w-auto"><Link to="/">Ресурсы</Link></li>
+            <li className="hover:text-gray-300 w-full md:w-auto"><Link to="/">Тарифы</Link></li>
             <li className="text-gray-300 hidden md:block">|</li>
-            <li className="hover:text-gray-300 w-full md:w-auto"><button>Войти</button></li>
-            <li className="w-full md:w-auto"><RedButton text="Начать бесплатно"/></li>
+            <li className="hover:text-gray-300 w-full md:w-auto"><Link to="/auth/login">Войти</Link></li>
+            <li className="w-full md:w-auto">
+            <Link to="/auth/register">
+                <RedButton text="Начать бесплатно"/>
+            </Link></li>
           </ul>
         </div>
       </div>

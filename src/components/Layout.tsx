@@ -1,8 +1,8 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Footer } from "./wrapper/Footer";
-import { Header } from "./wrapper/Header";
 import { useLocation } from "@tanstack/react-router";
 import { Sidebar } from "./sideBar/Sidebar";
+import { Header } from "./wrapper/Header";
 
 export function CheckPath():boolean {
     const {pathname} = useLocation()
@@ -41,7 +41,7 @@ export function Layout({children}:PropsWithChildren) {
                     <Header/>
                 </div>
                 
-                <div className="flex-grow flex-shrink-0 mt-16">
+                <div className="flex-grow flex-shrink-0 mt-16 transition-all duration-300">
                     {children}
                 </div>
 
@@ -51,9 +51,9 @@ export function Layout({children}:PropsWithChildren) {
             </div>
         ) : 
         (
-            <div className="flex h-screen">
+            <div className="flex h-screen bg-current-bg transition-all duration-300">
                 <Sidebar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-                <div className="flex-grow lg:mt-0 mt-12">
+                <div className="flex-grow m-auto lg:mt-0 mt-12">
                     {children}
                 </div>
             </div>

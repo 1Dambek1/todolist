@@ -9,7 +9,10 @@
 }
 
 .dark{
-  color-scheme: dark;
-  background-color: #0f141d;
+  --current-bg:#0f141d;
+  --text-color:#fff;
 }
 
+html{
+  color:var(--text-color);
+}

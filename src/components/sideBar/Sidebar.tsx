@@ -4,7 +4,7 @@ import { sidebarConstItems } from "../../constants/sideBarItems";
 import { SideBarNav } from "./sideBarNav";
 import { SidebarProps } from "../../types/sideBarType";
 
-// Добавим типы пропсов
+// Добавим типы пропсв
 
 
 export function Sidebar({ darkMode, toggleDarkMode }: SidebarProps) {
@@ -24,20 +24,21 @@ export function Sidebar({ darkMode, toggleDarkMode }: SidebarProps) {
 
             {isOpen && (
                 <div 
-                    className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+                    className="fixed inset-0 dark:bg-gray-900 z-30 lg:hidden"
                     onClick={() => setIsOpen(false)}
                 />
             )}
 
             <div className={`
                 pt-10
+                opacity-100
                 fixed lg:static
                 h-full
-              bg-white dark:bg-gray-900 
+                dark:bg-gray-900 
                 bg-sidebar-bg
                 shadow-lg
-                transition-all duration-300
-                z-40 lg:z-0
+                    z-40
+                transition-left duration-300
                 ${isOpen ? 'w-64 left-0' : 'w-0 -left-64 lg:w-20'}
                 overflow-hidden
             `}>

@@ -13,7 +13,7 @@ import Testimonials from "../components/mainPage/Reviews"
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-white">
+    <div className="min-h-screen bg-gradient-to-b from-white to-white text-black bg-white">
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
         <Hero />

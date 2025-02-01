@@ -1,8 +1,10 @@
 "use client"
 
+import { useRouter } from "@tanstack/react-router"
 import { motion } from "motion/react"
 
 export default function Hero() {
+  const router = useRouter()
   return (
     <section className="min-h-screen flex items-center justify-center text-center">
       <motion.div
@@ -17,8 +19,9 @@ export default function Hero() {
           to a more organized you!
         </p>
         <button 
+        onClick={() => router.navigate({to: "/auth/register"})}
         className="bg-red text-white px-6 py-3 rounded-xl
-        hover:bg-red-dark
+        hover:bg-red-dark 
         ">Get Started for Free</button>
       </motion.div>
     </section>

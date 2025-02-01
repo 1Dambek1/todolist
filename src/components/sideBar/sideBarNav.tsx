@@ -13,8 +13,8 @@ export function SideBarNav({sidebarItems, isOpen, setIsOpen,darkMode}:{sidebarIt
                 className={`
                     p-3 py-2  rounded-lg cursor-pointer
                     ${currentPath === item.path 
-                        ? !darkMode ? 'bg-blue-500 text-white' : 'bg-purple-700 text-white' 
-                        : 'hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-white'}
+                        ? !darkMode ? 'bg-blue-500 text-white ' : 'bg-purple-700 text-white ' 
+                        : '  dark:text-white'}
                     ${!isOpen && 'lg:justify-center'}
                 `}
                 onClick={() => {

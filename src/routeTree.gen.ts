@@ -12,7 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
-import { Route as ListTodayImport } from './routes/list/today'
+import { Route as DashboardTodayImport } from './routes/dashboard/today'
 import { Route as AuthRegisterImport } from './routes/auth/register'
 import { Route as AuthLoginImport } from './routes/auth/login'
 
@@ -24,9 +24,9 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ListTodayRoute = ListTodayImport.update({
-  id: '/list/today',
-  path: '/list/today',
+const DashboardTodayRoute = DashboardTodayImport.update({
+  id: '/dashboard/today',
+  path: '/dashboard/today',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,11 +67,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRegisterImport
       parentRoute: typeof rootRoute
     }
-    '/list/today': {
-      id: '/list/today'
-      path: '/list/today'
-      fullPath: '/list/today'
-      preLoaderRoute: typeof ListTodayImport
+    '/dashboard/today': {
+      id: '/dashboard/today'
+      path: '/dashboard/today'
+      fullPath: '/dashboard/today'
+      preLoaderRoute: typeof DashboardTodayImport
       parentRoute: typeof rootRoute
     }
   }
@@ -83,14 +83,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
-  '/list/today': typeof ListTodayRoute
+  '/dashboard/today': typeof DashboardTodayRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
-  '/list/today': typeof ListTodayRoute
+  '/dashboard/today': typeof DashboardTodayRoute
 }
 
 export interface FileRoutesById {
@@ -98,15 +98,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/register': typeof AuthRegisterRoute
-  '/list/today': typeof ListTodayRoute
+  '/dashboard/today': typeof DashboardTodayRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth/login' | '/auth/register' | '/list/today'
+  fullPaths: '/' | '/auth/login' | '/auth/register' | '/dashboard/today'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth/login' | '/auth/register' | '/list/today'
-  id: '__root__' | '/' | '/auth/login' | '/auth/register' | '/list/today'
+  to: '/' | '/auth/login' | '/auth/register' | '/dashboard/today'
+  id: '__root__' | '/' | '/auth/login' | '/auth/register' | '/dashboard/today'
   fileRoutesById: FileRoutesById
 }
 
@@ -114,14 +114,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthRegisterRoute: typeof AuthRegisterRoute
-  ListTodayRoute: typeof ListTodayRoute
+  DashboardTodayRoute: typeof DashboardTodayRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthRegisterRoute: AuthRegisterRoute,
-  ListTodayRoute: ListTodayRoute,
+  DashboardTodayRoute: DashboardTodayRoute,
 }
 
 export const routeTree = rootRoute
@@ -137,7 +137,7 @@ export const routeTree = rootRoute
         "/",
         "/auth/login",
         "/auth/register",
-        "/list/today"
+        "/dashboard/today"
       ]
     },
     "/": {
@@ -149,8 +149,8 @@ export const routeTree = rootRoute
     "/auth/register": {
       "filePath": "auth/register.tsx"
     },
-    "/list/today": {
-      "filePath": "list/today.tsx"
+    "/dashboard/today": {
+      "filePath": "dashboard/today.tsx"
     }
   }
 }

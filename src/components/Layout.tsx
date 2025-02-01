@@ -6,7 +6,7 @@ import { Header } from "./wrapper/Header";
 
 export function CheckPath():boolean {
     const {pathname} = useLocation()
-    if(pathname.startsWith("/list") || pathname.startsWith("/profile")) {
+    if(pathname.startsWith("/dashboard") || pathname.startsWith("/profile")) {
         return false
     }
     return true
@@ -36,12 +36,12 @@ export function Layout({children}:PropsWithChildren) {
     return (
         status ? (
             
-            <div className="flex flex-col w-full h-screen">
-                <div className="fixed top-0 left-0 right-0 z-10">
+            <div className="flex flex-col w-full h-screen text-black bg-white">
+                <div className="fixed top-0 left-0 right-0 z-10 ">
                     <Header/>
                 </div>
                 
-                <div className="flex-grow flex-shrink-0 mt-16 transition-all duration-300">
+                <div className="flex-grow flex-shrink-0 mt-16 transition-all duration-300 bg-white text-black">
                     {children}
                 </div>
 

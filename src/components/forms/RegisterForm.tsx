@@ -2,24 +2,25 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Github } from "lucide-react";
 import { useRegister } from "../../hooks/useRegister";
 import { registerSchema, RegisterSchema } from "../../lib/schemas";
-import { Form, useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
-import { FormField } from "@/components/ui/form";
-import { z } from "zod";
+import { FormField, Form } from "@/components/ui/form";
 
 export function RegisterForm() {
 
   const RegisterForm = useForm<RegisterSchema>({
     resolver: zodResolver(registerSchema),
-    mode: "all"
+
   });
 
-  const {mutate: registerUser} = useRegister()
+  const {mutate: registerUser, isPending, isError, error} = useRegister()
  
   function RegisterOnSubmit(data: RegisterSchema ){
     console.log(data);
     
+    registerUser(data);
   }
+  
   return (
     <div className="w-2/4 border-2 border-gray-200 rounded-lg p-6 h-fit shadow-lg bg-white">
         <div className="text-3xl font-bold mb-4 text-center text-gray-800">
@@ -27,7 +28,7 @@ export function RegisterForm() {
         </div>
 
         <div className="">
-            <Form {...RegisterForm}>
+            <Form {...RegisterForm} >
                 <form onSubmit={RegisterForm.handleSubmit(RegisterOnSubmit)}  className="flex flex-col gap-4">
                     <FormField control={RegisterForm.control} name="email" render={({field}) => (
                         <div>
@@ -59,9 +60,15 @@ export function RegisterForm() {
                             )}
                         </div>
                     )}/>
-                    
-                    <button type="submit" className="bg-red-light text-white rounded-lg p-3 hover:bg-red-dark transition duration-200">
-                        Зарегистрироваться
+                    {isError && (
+                        <span className="text-red-500 text-sm">{error?.status === 411 ? "Пользователь с такой почтой уже зарегистрирован" : "Ошибка регистрации"}</span>
+                    )}
+                    <button 
+                      type="submit" 
+                      disabled={isPending}
+                      className="bg-red-light text-white rounded-lg p-3 hover:bg-red-dark transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        { isPending ? 'Регистрация...' : 'Зарегистрироваться'}
                     </button>
                 </form>
             </Form>

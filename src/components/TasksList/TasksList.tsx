@@ -1,5 +1,5 @@
 import { tasks } from "../../constants/tasks";
-import { Task } from "../Task/Task";
+import { Task } from "./Task";
 
 export function TasksList() {
   return (

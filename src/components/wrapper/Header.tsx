@@ -1,17 +1,24 @@
 import { Link } from "@tanstack/react-router";
 import { RedButton } from "../ui/RedButton";
 import { useState } from "react";
+import { Link as ScrollLink } from "react-scroll"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  
+  
+// ""
   return (
+    
     <div className="bg-white pt-4 flex justify-center">
+         
       <div className="w-[1140px] flex justify-between px-4 md:px-0">
-        <div className="flex gap-2 items-center">
-          <img className="max-w-[40px] max-h-[40px]" src="/logo.png" alt="logo" />
-          <span className="text-2xl font-bold text-red">todolist</span>
-        </div>
+        <Link to="/">
+          <div className="flex gap-2 items-center">
+            <img className="max-w-[40px] max-h-[40px]" src="/logo.png" alt="logo" />
+            <span className="text-2xl font-bold text-red">todolist</span>
+          </div>
+        </Link>
 
         {/* Бургер кнопка */}
         <button 
@@ -55,9 +62,23 @@ export function Header() {
           shadow-lg md:shadow-none
         `}>
           <ul className="flex flex-col md:flex-row gap-4 md:gap-8 text-sm items-center w-full md:w-auto p-4 md:p-0">
-            <li className="hover:text-gray-300 w-full md:w-auto"><Link to="/">Возможности</Link></li>
-            <li className="hover:text-gray-300 w-full md:w-auto"><Link to="/">Ресурсы</Link></li>
-            <li className="hover:text-gray-300 w-full md:w-auto"><Link to="/">Тарифы</Link></li>
+
+           <li className="hover:text-gray-300 w-full md:w-auto">
+              <ScrollLink to="features" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600">
+              <Link to="/">Возможности</Link>
+              </ScrollLink>
+            </li>
+            <li className="hover:text-gray-300 w-full md:w-auto">
+              <ScrollLink to="how-it-works" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600">
+              <Link to="/">Как работает</Link>
+            </ScrollLink>
+            </li>
+            <li className="hover:text-gray-300 w-full md:w-auto">
+              <ScrollLink to="testimonials" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600">
+                  <Link to="/">Отзывы</Link>
+              </ScrollLink>
+            </li>
+            
             <li className="text-gray-300 hidden md:block">|</li>
             <li className="hover:text-gray-300 w-full md:w-auto"><Link to="/auth/login">Войти</Link></li>
             <li className="w-full md:w-auto">

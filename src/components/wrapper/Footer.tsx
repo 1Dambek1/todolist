@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <div className=" pt-80 pb-2 bg-gradient-to-b from-white to-brown-light flex justify-center">
+    <div className=" pt-20 pb-2 bg-gradient-to-b from-white to-brown-light flex justify-center">
       <div className="w-1140">
 
         <div className="w-full h-[1px]  mb-5 bg-gray-300"></div>

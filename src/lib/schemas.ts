@@ -16,3 +16,10 @@ export const registerSchema = z.object({
 export type LoginSchema = z.infer<typeof loginSchema>;
 export type RegisterSchema = z.infer<typeof registerSchema>;
 
+
+export const createcategoryschema = z.object({
+    name: z.string().min(3, {message: "Name must be at least 3 characters"}),
+    color: z.enum(["red", "blue", "green", "yellow", "purple"]),
+});
+
+export type CreateCategorySchema = z.infer<typeof createcategoryschema>;

@@ -12,22 +12,22 @@ export const sidebarConstItems: SidebarItem[] = [
     },
     {
         title: "Сегодня",
-        path: "/list/today",
+        path: "/dashboard/today",
         icon: <Calendar1 size={20} />
     },
     {
         title: "Предстоящие",
-        path: "/list/future",
+        path: "/dashboard/future",
         icon: <Calendar size={20} />
     },
     {
         title: "Выполнено",
-        path: "/list/completed",
+        path: "/dashboard/completed",
         icon: <CalendarCheck2 size={20} />
     },
     {
         title: "Настройки",
-        path: "/list/settings",
+        path: "/dashboard/settings",
         icon: <Settings size={20} />
     },
 ];
